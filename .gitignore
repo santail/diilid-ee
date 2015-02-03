@@ -2,6 +2,9 @@
 logs
 *.log
 
+# Cloud9
+.c9
+
 # Runtime data
 pids
 *.pid
@@ -26,3 +29,10 @@ node_modules
 
 # Users Environment Variables
 .lock-wscript
+
+public
+.tmp
+.idea
+client/bower_components
+dist
+/server/config/local.env.js
