@@ -4,24 +4,24 @@ angular.module('workspaceApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
     $scope.awesomeThings = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
+    $http.get('/api/offers').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('thing', $scope.awesomeThings);
+      socket.syncUpdates('offer', $scope.awesomeThings);
     });
 
-    $scope.addThing = function() {
-      if($scope.newThing === '') {
+    $scope.addOffer = function() {
+      if($scope.newOffer === '') {
         return;
       }
-      $http.post('/api/things', { name: $scope.newThing });
-      $scope.newThing = '';
+      $http.post('/api/offers', { name: $scope.newOffer });
+      $scope.newOffer = '';
     };
 
-    $scope.deleteThing = function(thing) {
-      $http.delete('/api/things/' + thing._id);
+    $scope.deleteOffer = function(offer) {
+      $http.delete('/api/offers/' + offer._id);
     };
 
     $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('thing');
+      socket.unsyncUpdates('offer');
     });
   });
