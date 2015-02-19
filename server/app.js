@@ -11,6 +11,12 @@ var express = require('express');
 var mongoose = require('mongoose');
 var config = require('./config/environment');
 
+// init lugg logger 
+require('lugg').init();
+
+// init logger for app.js
+var log = require('lugg')('app');
+
 // Connect to database
 mongoose.connect(config.mongo.uri, config.mongo.options);
 
@@ -30,7 +36,7 @@ require('./routes')(app);
 
 // Start server
 server.listen(config.port, config.ip, function () {
-  console.log('Express server listening on %d, in %s mode', config.port, app.get('env'));
+  log.info('Express server listening on %d, in %s mode', config.port, app.get('env'));
 });
 
 // Expose app
