@@ -4,8 +4,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var OfferSchema = new Schema({
-  name: String,
-  info: String,
+  title: Schema.Types.Mixed,
+  description: Schema.Types.Mixed,
+  price: Schema.Types.Mixed,
+  createdAt: { type: Date, default: Date.now },
   active: Boolean
 });
 
