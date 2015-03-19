@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/workspace-dev'
+    uri: 'mongodb://deals:offers@staff.mongohq.com:10020/deals_development'
   },
 
   seedDB: true
