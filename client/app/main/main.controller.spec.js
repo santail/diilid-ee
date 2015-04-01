@@ -24,6 +24,6 @@ describe('Controller: MainCtrl', function () {
 
   it('should attach a list of offers to the scope', function () {
     $httpBackend.flush();
-    expect(scope.awesomeThings.length).toBe(4);
+    expect(scope.offers.length).toBe(4);
   });
 });

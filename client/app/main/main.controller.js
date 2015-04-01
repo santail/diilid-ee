@@ -1,27 +1,40 @@
 'use strict';
 
-angular.module('workspaceApp')
-  .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.awesomeThings = [];
+angular.module('workspaceApp').controller('MainCtrl', ['$scope', 'Wish', 'Offer' , function ($scope, Wish, Offer) {
+  $scope.wish = new Wish();
+  $scope.errors = {};
 
-    $http.get('/api/offers').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      socket.syncUpdates('offer', $scope.awesomeThings);
+  $scope.addWish = function(form) {
+    $scope.$broadcast('show-errors-check-validity');
+
+    if ($scope.form.$valid) {
+      $scope.wish.$save().then(
+        function (data) {
+          console.log('saved', data);
+
+          $scope.wish = new Wish();
+          $scope.$broadcast('show-errors-reset');
+
+          $scope.alerts = [
+            { type: 'success', msg: 'Well done! You successfully read this important alert message.' }
+          ];
+        },
+        function (error) {
+            $scope.alerts = [
+              { type: 'danger', msg: 'Well done! You successfully read this important alert message.' }
+            ];
+        });
+    }
+  };
+
+  $scope.reset = function () {
+    $scope.wish = new Wish();
+    $scope.$broadcast('show-errors-reset');
+  };
+
+  $scope.proposeOffer = function (contains) {
+    return Offer.query({
+      'contains': contains
     });
-
-    $scope.addOffer = function() {
-      if($scope.newOffer === '') {
-        return;
-      }
-      $http.post('/api/offers', { name: $scope.newOffer });
-      $scope.newOffer = '';
-    };
-
-    $scope.deleteOffer = function(offer) {
-      $http.delete('/api/offers/' + offer._id);
-    };
-
-    $scope.$on('$destroy', function () {
-      socket.unsyncUpdates('offer');
-    });
-  });
+  };
+}]);
