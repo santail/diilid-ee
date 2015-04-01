@@ -4,21 +4,21 @@
 
 'use strict';
 
-var Request = require('./request.model');
+var Wish = require('./wish.model');
 
 exports.register = function(socket) {
-  Request.schema.post('save', function (doc) {
+  Wish.schema.post('save', function (doc) {
     onSave(socket, doc);
   });
-  Request.schema.post('remove', function (doc) {
+  Wish.schema.post('remove', function (doc) {
     onRemove(socket, doc);
   });
 }
 
 function onSave(socket, doc, cb) {
-  socket.emit('request:save', doc);
+  socket.emit('wish:save', doc);
 }
 
 function onRemove(socket, doc, cb) {
-  socket.emit('request:remove', doc);
+  socket.emit('wish:remove', doc);
 }

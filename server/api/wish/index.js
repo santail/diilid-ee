@@ -1,7 +1,7 @@
 'use strict';
 
 var express = require('express');
-var controller = require('./request.controller');
+var controller = require('./wish.controller');
 
 var router = express.Router();
 
