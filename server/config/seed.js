@@ -152,13 +152,11 @@ Offer.find({}).remove(function () {
 Wish.find({}).remove(function () {
   Wish.create({
     contains: 'суши',
-    hasEmail: true,
     email: 'nikolai.muhhin@gmail.com',
     hasPhone: true,
     phone: '+37253003125'
   }, {
     contains: 'пицца',
-    hasEmail: true,
     email: 'nikolai.muhhin@gmail.com',
     hasPhone: false,
     phone: null
