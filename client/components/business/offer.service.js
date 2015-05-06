@@ -5,7 +5,7 @@ angular.module('workspaceApp')
     return $resource('/api/offers/:id/:controller', {
       id: '@_id'
     }, {
-      qu: {
+      query: {
         method: 'GET',
         params: {
           contains: '@contains'
