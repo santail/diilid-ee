@@ -4,8 +4,10 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 var WishSchema = new Schema({
-  name: String,
-  info: String,
+  contains: String,
+  email: String,
+  hasPhone: Boolean,
+  phone: String,
   active: Boolean
 });
 

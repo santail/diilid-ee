@@ -2,6 +2,7 @@
 
 var _ = require('lodash');
 var Wish = require('./wish.model');
+var Offer = require('../offer/offer.model');
 
 // Get list of wishs
 exports.index = function(req, res) {
@@ -24,7 +25,13 @@ exports.show = function(req, res) {
 exports.create = function(req, res) {
   Wish.create(req.body, function(err, wish) {
     if(err) { return handleError(res, err); }
-    return res.json(201, wish);
+    
+    Offer.find({
+      'title': new RegExp(wish.contains, 'gi')
+    }, function (err, data) {
+      if(err) { return handleError(res, err); }
+      return res.json(201, data);
+    });
   });
 };
 
