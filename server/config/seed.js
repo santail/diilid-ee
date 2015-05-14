@@ -37,7 +37,8 @@ Offer.find({}).remove(function () {
       discount: "4.55 €",
       save: "-35%"
     },
-    parsed: "1/3/2015"
+    parsed: "1/3/2015",
+    language: "russian"
   }, {
     url: "http://www.kriisis.ee/ru/view_sale.php?id=645868",
     site: "www.kriisis.ee",
@@ -52,7 +53,8 @@ Offer.find({}).remove(function () {
     active: {
       period: "Период кампании: 24.03.2015 - 30.03.2015"
     },
-    parsed: "26/2/2015"
+    parsed: "26/2/2015",
+    language: "russian"
   }, {
     url: "https://cherry.ee/06-06-valjumisega-puhkusepakett-kuprosele?utm_source=pakkumisedee&utm_medium=Aggregators&utm_campaign=cherry_april_old_morning",
     site: "www.cherry.ee",
@@ -76,7 +78,8 @@ Offer.find({}).remove(function () {
       original: "",
       discount: "399 €"
     },
-    parsed: "1/3/2015"
+    parsed: "1/3/2015",
+    language: "russian"
   }, {
     url: "https://cherry.ee/rehvide-taisvahetus-rattad24-tallinna-ja-parnu-esindustes?utm_source=pakkumisedee&utm_medium=Aggregators&utm_campaign=cherry_april_old_night",
     site: "www.cherry.ee",
@@ -96,7 +99,8 @@ Offer.find({}).remove(function () {
       original: "25 - 55 €",
       discount: "13 - 35 €"
     },
-    parsed: "1/3/2015"
+    parsed: "1/3/2015",
+    language: "russian"
   }, {
     url: "https://www.minuvalik.ee/ru/deal/3092394913/",
     site: "www.minuvalik.ee",
@@ -122,7 +126,8 @@ Offer.find({}).remove(function () {
       discount: "1 €",
       save: "-48%"
     },
-    parsed: "1/3/2015"
+    parsed: "1/3/2015",
+    language: "russian"
   }, {
     url: "https://www.minuvalik.ee/ru/deal/0423491770/",
     site: "www.minuvalik.ee",
@@ -143,7 +148,8 @@ Offer.find({}).remove(function () {
       discount: "9.50 €",
       save: "-50%"
     },
-    parsed: "1/3/2015"
+    parsed: "1/3/2015",
+    language: "russian"
   }, function () {
     console.log('finished populating offers');
   });
