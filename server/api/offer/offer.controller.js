@@ -5,7 +5,12 @@ var Offer = require('./offer.model');
 
 // Get list of offers
 exports.index = function(req, res) {
-  Offer.find(function (err, offers) {
+  Offer.find({
+    $text: {
+      $search: req.query.contains,
+      $language: 'ru'
+    }
+  }, function (err, offers) {
     if(err) { return handleError(res, err); }
     return res.json(200, offers);
   });
