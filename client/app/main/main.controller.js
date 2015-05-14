@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('workspaceApp').controller('MainCtrl', ['$scope', 'Wish', 'Offer', '$modal', '$log', function ($scope, Wish, Offer, $modal, $log) {
+angular.module('workspaceApp').controller('MainCtrl', ['$scope', 'Wish', 'Offer', '$modal', '$log', '$http', function ($scope, Wish, Offer, $modal, $log, $http) {
   $scope.wish = new Wish();
   $scope.alerts = [];
 
@@ -50,8 +50,13 @@ angular.module('workspaceApp').controller('MainCtrl', ['$scope', 'Wish', 'Offer'
   };
 
   $scope.proposeOffer = function (contains) {
-    return Offer.query({
+    var params = {
       'contains': contains
+    };
+    
+    return $http.get('/api/offers', {'params': params})
+    .then(function(res) {
+      return res.data;
     });
   };
 }])
