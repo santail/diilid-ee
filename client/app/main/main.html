@@ -39,14 +39,14 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="form-group" show-errors>
-                    <label>Пожалуйста, когда появятся скидки на</label>
                     <script type="text/ng-template" id="offerTemplate.html">
-                        <a>
-                            <span bind-html-unsafe="match.model.title.short ? match.model.title.short : match.model.title | typeaheadHighlight:query"></span>
-                        </a>
-                    </script>
+-                        <a>
+-                            <span bind-html-unsafe="match.model.title"></span>
+-                        </a>
+-                    </script>
 
-                    <input type="text" name="contains" class="form-control" placeholder="все что угодно, но можно и поточнее" ng-model="wish.contains" typeahead="item as item.title + ' (' + item.active + ')' for item in proposeOffer($viewValue)" typeahead-template-url="offerTemplate.html" required>
+                    <label>Пожалуйста, когда появятся скидки на</label>
+                    <input type="text" class="form-control" ng-model="wish.contains" data-animation="am-flip-x" bs-options="address.title as address.title for address in proposeOffer($viewValue)" placeholder="все что угодно, но можно и поточнее" required bs-typeahead>
 
                     <p class="help-block" ng-if="form.contains.$error.required">Please describe your wish</p>
                 </div>

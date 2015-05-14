@@ -6,7 +6,8 @@ angular.module('workspaceApp', [
   'ngSanitize',
   'btford.socket-io',
   'ui.router',
-  'ui.bootstrap',
+  'ngAnimate',
+  'mgcrea.ngStrap',
   'ui.bootstrap.showErrors'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
