@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://' + process.env.IP + ':27017/deals_public_development'
+    uri: 'mongodb://' + process.env.IP + ':27017/deals_development'
   },
 
   seedDB: true
